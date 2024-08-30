@@ -1,0 +1,50 @@
+<header
+    class="sticky top-0 z-50 w-full border-b bg-background/95 dark:bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div class="header-container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+        <div class="flex gap-6 md:gap-10">
+            <a routerLink="/" class="flex items-center space-x-2" matTooltip="Home">
+                <img src="assets/images/a-latter.png" alt="a-latter"
+                    class="w-10 dark:bg-white dark:rounded-full hover:animate-glow transform transition-transform duration-300 ease-in-out">
+                <span class="inline-block font-bold text-gray-900 dark:text-white">Atikur</span>
+            </a>
+        </div>
+        <div class="flex flex-1 items-center justify-end space-x-4">
+            <nav class="flex items-center space-x-1">
+                <a href="https://github.com/atikur0786/atikur0786" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub Profile" mat-icon-button>
+                    @if (currentTheme === 'light') {
+                    <img src="assets/images/github-mark.svg" alt="github-dark" width="24" height="24"
+                        class="inline-block">
+                    } @else {
+                    <img src="assets/images/github-mark-white.svg" alt="github-light" width="24" height="24"
+                        class="inline-block">
+                    }
+                </a>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                    class="text-gray-900 dark:text-white">
+                    @if (currentTheme === 'light') {
+                    <mat-icon>light_mode</mat-icon>
+                    } @else if (currentTheme === 'dark') {
+                    <mat-icon>dark_mode</mat-icon>
+                    } @else {
+                    <mat-icon>settings_night_sight</mat-icon>
+                    }
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="setTheme('light')" aria-label="Light Mode">
+                        <mat-icon>light_mode</mat-icon>
+                        <span>Light</span>
+                    </button>
+                    <button mat-menu-item (click)="setTheme('dark')" aria-label="Dark Mode">
+                        <mat-icon>dark_mode</mat-icon>
+                        <span>Dark</span>
+                    </button>
+                    <button mat-menu-item (click)="setTheme('system')" aria-label="System Preference">
+                        <mat-icon>settings_night_sight</mat-icon>
+                        <span>System</span>
+                    </button>
+                </mat-menu>
+            </nav>
+        </div>
+    </div>
+</header>
